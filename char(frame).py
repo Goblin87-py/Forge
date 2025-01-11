@@ -24,10 +24,6 @@ class user():
         self.stamina -= cost_defend
         print(f"you defended, {self.stamina}") 
 
-    def parry(self, cost_parry=7):
-        self.stamina += cost_parry
-        print(f"you parried, {self.stamina}")
-
 player_character = user(inventory=[])
 player_character.attack(50)
 #player_character.defend(10)
