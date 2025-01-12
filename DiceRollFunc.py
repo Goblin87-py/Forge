@@ -1,7 +1,6 @@
 import random
 
-def dice_roll():
-  while True:  
+def dice_roll(): 
     press_enter = "Press Enter to roll the dice: > "
     user_input = input(press_enter)
     roll = random.randint(1, 6)
