@@ -1,31 +1,89 @@
+import random
+
+
+
+
+
+
 class user():
 
-    def __init__(self, inventory, health=100, stamina=50): #these are attributes
+    def __init__(self, health=100, stamina=50): #these are attributes
         self.health = health
         self.stamina = stamina
-        self.inventory = inventory # these are paremeters. before the paremeters can be set they must be chained to the attribute
         print(f"{health}, {stamina}")
         if self.stamina >= 0:
-            print("your out of stamina")
+            print("You're out of Stamina")
+        
+        dead = self.health == 0
+       
+    def parry_action(self, cost_parry=5):
+        self.stamina -= cost_parry
+        print('''Roll 1d6, If the result is an even number, You parry the next atack and gain 5 stamina.
+             If the result is an odd number, Miss the parry and loose 5 stamina''') 
     
-    def manage_inventory(self, capacity=20):
-        self.inventory == capacity
-        if self.inventory == capacity:
-            self.inventory.append()
+        result = random.randint(1, 6)
+        print(result)
+        if result: 
+            2, 4 or 6 
+            print("You Parried!")
+            self.stamina += 5
+        else: 
+            print("You missed!")
+            self.stamina -= 5
+
+    def block_action(self, cost_block=5):
+        self.stamina -= cost_block
+        print("Roll 1d6 to block")
+
+        result = random.randint(1, 6)
+     
+        print(result)
+
+        if result == (3, 4, 5 or 6):
+            print("You blocked")
         else:
-            print("inventory full")
+            print("You missed the block")
+
+    def attack_action(self, cost_atk=5):
+        self.stamina -= cost_atk
+        print("Roll 1d6 to Attack")
+
+        result = random.randint(1, 6)
+
+        print(result)
+
+        if result == (3, 4, 5 or 6):
+            print("You hit!")
+        else: 
+            print("You missed")
 
 
-    def attack(self, cost_attack=5): #this attribute modifys the stamina attribute within the class
-        self.stamina -= cost_attack #Attribute is what you put on top, argument is what you pass from a caller viewpoint, parameter is what's passed from a callee viewpoint.
-        print(f"you attacked, {self.stamina}")
 
-    def defend(self, cost_defend=10):
-        self.stamina -= cost_defend
-        print(f"you defended, {self.stamina}") 
 
-player_character = user(inventory=[])
-player_character.attack(50)
-#player_character.defend(10)
-#player_character.parry(7)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
